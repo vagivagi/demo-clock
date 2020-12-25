@@ -1,13 +1,14 @@
 package com.example.democlock;
 
 public class MockTime {
-    private int second = 0;
+    private final long start;
 
-    public void tick() {
-        second++;
+
+    public MockTime() {
+        this.start = System.currentTimeMillis();
     }
 
-    public int getSecond() {
-        return second;
+    public long duration() {
+        return System.currentTimeMillis() - start;
     }
 }

@@ -16,10 +16,8 @@ public class DemoClockApplication {
         // Timer設定
         Timer timer = new Timer(true);
         MockTime mockTime = new MockTime();
-        // 1mごとにMockTimeの値がインクリメントされる
-        timer.scheduleAtFixedRate(new TimeKickTask(mockTime), 1, 1);
         for (int i = 0; i < 1000; i++) {
-            System.out.println("current time:" + LocalDateTime.now(Clock.offset(clock, Duration.ofSeconds(mockTime.getSecond()))).
+            System.out.println("current time:" + LocalDateTime.now(Clock.offset(clock, Duration.ofSeconds(mockTime.duration()))).
                     format(DateTimeFormatter.ISO_LOCAL_DATE_TIME));
             Thread.sleep(10);
         }
